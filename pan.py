@@ -14,7 +14,5 @@ print(data)
 
 print('##########################')
 
-five=data.head()
-
 
 
