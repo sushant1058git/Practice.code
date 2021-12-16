@@ -69,34 +69,105 @@
 
 
 
-# importing pandas package
-import pandas as pd
+# # importing pandas package
+# import pandas as pd
 
-# making data frame from csv file
-data = pd.read_csv("nba.csv", index_col ="Team")
+# # making data frame from csv file
+# data = pd.read_csv("nba.csv", index_col ="Team")
 
-# retrieving rows by loc method
-rows = data.loc["Utah Jazz"]
+# # retrieving rows by loc method
+# rows = data.loc["Utah Jazz"]
 
-# checking data type of rows
-print(type(rows))
+# # checking data type of rows
+# print(type(rows))
 
-# display
-print(rows)
+# # display
+# print(rows)
 
 
 
-# importing pandas package
-import pandas as pd
+# # importing pandas package
+# import pandas as pd
 
-# making data frame from csv file
-data = pd.read_csv("nba.csv", index_col ="Name")
+# # making data frame from csv file
+# data = pd.read_csv("nba.csv", index_col ="Name")
 
-# retrieving rows by loc method
-rows = data.loc["Avery Bradley":"Isaiah Thomas"]
+# # retrieving rows by loc method
+# rows = data.loc["Avery Bradley":"Isaiah Thomas"]
 
-# checking data type of rows
-print(type(rows))
+# # checking data type of rows
+# print(type(rows))
 
-# display
-print(rows)
+# # display
+# print(rows)
+
+
+# import pandas as pd
+
+# data=pd.read_csv("nba.csv")
+# row=data.loc[0:4,:]
+# print(row)
+
+
+# import pandas as pd
+
+# df=pd.read_csv("nba.csv")
+# print(df.columns)
+
+# row=df.iloc[:,1:4]
+# print(row)
+
+
+# import pandas as pd
+
+# data=pd.read_csv("nba.csv", index_col='Name')
+
+# # print(df.head())
+
+# print(data.loc['Avery Bradley':'Jonas Jerebko',:])
+
+
+# import pandas as pd
+# # data
+# data = {
+#    'Name': ['Hafeez', 'Srikanth', 'Rakesh'],
+#    'Age': [19, 20, 19]
+# }
+# # creating a DataFrame with boolean index vector
+# data_frame = pd.DataFrame(data, index = [True, False, True])
+# print(data_frame)
+
+
+# import pandas as pd
+
+# data=pd.read_csv("nba.csv")
+
+# team_grp=data.groupby("Team")
+
+# # for g in team_grp:
+# #     print(g)
+
+# print(team_grp.groups)
+
+# importing pandas module
+import pandas as pd 
+import numpy as np
+   
+# Define a dictionary containing employee data 
+data1 = {'Name':['Jai', 'Anuj','Abhi', 'Jai', 'Princi', 
+                 'Gaurav', 'Anuj', 'Princi', 'Abhi'], 
+        'Age':[27, 24,32, 22, 32, 
+               33, 36, 27, 32], 
+        'Address':['Nagpur', 'Kanpur','Patna', 'Allahabad', 'Kannuaj',
+                   'Jaunpur', 'Kanpur', 'Allahabad', 'Aligarh'], 
+        'Qualification':['Msc', 'MA','BE', 'MCA', 'Phd',
+                         'B.Tech', 'B.com', 'Msc', 'MA']} 
+     
+   
+# Convert the dictionary into DataFrame  
+df = pd.DataFrame(data1)
+gb=df.groupby('Name')
+
+sums=gb.aggregate(np.sum)
+print(sums)
+
