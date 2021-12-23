@@ -303,3 +303,240 @@
 #    pass
         
 # c=Child()
+
+
+# '''Inheritance in Python'''
+
+# # A Python program to demonstrate inheritance
+
+# # Base or Super class. Note object in bracket.
+# # (Generally, object is made ancestor of all classes)
+# class Person(object):  #It is equivalent to class Person:
+	
+# 	# Constructor
+# 	def __init__(self, name):
+# 		self.name = name
+
+# 	# To get name
+# 	def getName(self):
+# 		return self.name
+
+# 	# To check if this person is an employee
+# 	def isEmployee(self):
+# 		return False
+
+
+# # Inherited or Subclass (Note Person in bracket)
+# class Employee(Person):
+
+# 	# Here we return true
+# 	def isEmployee(self):
+# 		return True
+
+# # Driver code
+# emp = Person("Geek1") # An Object of Person
+# print(emp.getName(), emp.isEmployee())
+
+# emp = Employee("Geek2") # An Object of Employee
+# print(emp.getName(), emp.isEmployee())
+
+
+# '''Python code to demonstrate how parent constructors are called.'''
+
+# # parent class
+# class Person( object ):	
+
+# 		# __init__ is known as the constructor		
+# 		def __init__(self, name, idnumber):
+# 				self.name = name
+# 				self.idnumber = idnumber
+# 		def display(self):
+# 				print(self.name)
+# 				print(self.idnumber)
+
+# # child class
+# class Employee( Person ):		
+# 		def __init__(self, name, idnumber, salary, post):
+# 				self.salary = salary
+# 				self.post = post
+
+# 				# invoking the __init__ of the parent class
+# 				Person.__init__(self, name, idnumber)
+
+				
+# # creation of an object variable or an instance
+# a = Employee('Rahul', 886012, 200000, "Intern")	
+
+# # calling a function of the class Person using its instance
+# a.display()
+
+
+# '''Python program to demonstrate error if we forget to invoke __init__() of the parent.'''
+
+# class A:
+# 	def __init__(self, n = 'Rahul'):
+# 			self.name = n
+# class B(A):
+# 	def __init__(self, roll):
+# 		    self.roll = roll
+#             # A.__init__(self)
+
+# object1 = B(23)
+# print (object1.name)
+
+
+
+# '''Python example to show the working of multiple inheritance'''
+# class Base1(object):
+# 	def __init__(self):
+# 		self.str1 = "Geek1"
+# 		print("Base1")
+
+# class Base2(object):
+# 	def __init__(self):
+# 		self.str2 = "Geek2"		
+# 		print("Base2")
+
+# class Derived(Base1, Base2):
+# 	def __init__(self):
+		
+# 		# Calling constructors of Base1 and Base2 classes
+# 		Base1.__init__(self)
+# 		Base2.__init__(self)
+# 		print("Derived")
+		
+# 	def printStrs(self):
+# 		print(self.str1, self.str2)
+		
+
+# ob = Derived()
+# ob.printStrs()
+
+
+# '''Example of multilevel Inheritance in Python'''
+
+# class Parent:
+#     def __init__(self, name):
+#         self.name=name
+#     def getName(self):
+#         return self.name
+    
+# class Child(Parent):
+#     def __init__(self, age):
+#         super().__init__('Ram')
+#         self.age=age
+#     def getAge(self):
+#         return self.age
+    
+# class grandChild(Child):
+#     def __init__(self, bloodgroup):
+#         super().__init__('28')
+#         self.bloodgroup=bloodgroup
+#     def getbloodGroup(self):
+#         return self.bloodgroup
+
+
+# obj=grandChild('B+')
+# print(obj.getbloodGroup(), obj.getName(), obj.getAge())
+
+# '''Private members of Parent class'''
+
+# # Python program to demonstrate private members of the parent class
+# class C(object):
+# 	def __init__(self):
+# 			self.c = 21
+
+# 			# d is private instance variable
+# 			self.__d = 42	
+# class D(C):
+# 	def __init__(self):
+# 			self.e = 84
+# 			C.__init__(self)
+# object1 = D()
+
+# # produces an error as d is private instance variable
+# print(object1.d)
+
+					
+''' Python program to demonstrate protected members'''
+
+
+# # Creating a base class
+# class Base:
+# 	def __init__(self):
+# 		self._a = 2     # Protected member
+
+
+# class Derived(Base):    # Creating a derived class
+# 	def __init__(self):
+# 		Base.__init__(self) # Calling constructor of Base class
+# 		print("Calling protected member of base class: ")
+# 		print(self._a)
+
+# obj1 = Derived()
+# obj2 = Base()
+
+# print(obj2.a) # Calling protected member Outside class will result in AttributeError
+
+
+
+
+'''Abstract class'''
+
+# from abc import ABC, abstractmethod
+
+# class mobile(ABC):
+#     @abstractmethod
+#     def model(self): #Abstract Method
+#         pass
+#     def ram(self, name):  #Concrete Method
+#         return self.name
+
+
+''' Python program showing abstract base class work'''
+from abc import ABC, abstractmethod
+
+class Polygon(ABC):
+
+	@abstractmethod
+	def noofsides(self):
+		pass
+
+class Triangle(Polygon):
+
+	# overriding abstract method
+	def noofsides(self):
+		print("I have 3 sides")
+
+class Pentagon(Polygon):
+
+	# overriding abstract method
+	def noofsides(self):
+		print("I have 5 sides")
+
+class Hexagon(Polygon):
+
+	# overriding abstract method
+	def noofsides(self):
+		print("I have 6 sides")
+
+class Quadrilateral(Polygon):
+
+	# overriding abstract method
+	def noofsides(self):
+		print("I have 4 sides")
+
+# Driver code
+R = Triangle()
+R.noofsides()
+
+K = Quadrilateral()
+K.noofsides()
+
+R = Pentagon()
+R.noofsides()
+
+K = Hexagon()
+K.noofsides()
+
+        

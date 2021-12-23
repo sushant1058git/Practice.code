@@ -150,24 +150,250 @@
 # print(team_grp.groups)
 
 # importing pandas module
-import pandas as pd 
-import numpy as np
+# import pandas as pd 
+# import numpy as np
    
-# Define a dictionary containing employee data 
-data1 = {'Name':['Jai', 'Anuj','Abhi', 'Jai', 'Princi', 
-                 'Gaurav', 'Anuj', 'Princi', 'Abhi'], 
-        'Age':[27, 24,32, 22, 32, 
-               33, 36, 27, 32], 
-        'Address':['Nagpur', 'Kanpur','Patna', 'Allahabad', 'Kannuaj',
-                   'Jaunpur', 'Kanpur', 'Allahabad', 'Aligarh'], 
-        'Qualification':['Msc', 'MA','BE', 'MCA', 'Phd',
-                         'B.Tech', 'B.com', 'Msc', 'MA']} 
+# # Define a dictionary containing employee data 
+# data1 = {'Name':['Jai', 'Anuj','Abhi', 'Jai', 'Princi', 
+#                  'Gaurav', 'Anuj', 'Princi', 'Abhi'], 
+#         'Age':[27, 24,32, 22, 32, 
+#                33, 36, 27, 32], 
+#         'Address':['Nagpur', 'Kanpur','Patna', 'Allahabad', 'Kannuaj',
+#                    'Jaunpur', 'Kanpur', 'Allahabad', 'Aligarh'], 
+#         'Qualification':['Msc', 'MA','BE', 'MCA', 'Phd',
+#                          'B.Tech', 'B.com', 'Msc', 'MA']} 
      
    
-# Convert the dictionary into DataFrame  
-df = pd.DataFrame(data1)
-gb=df.groupby('Name')
+# # Convert the dictionary into DataFrame  
+# df = pd.DataFrame(data1)
+# gb=df.groupby('Name')
 
-sums=gb.aggregate(np.sum)
-print(sums)
+# sums=gb.aggregate(np.sum)
+# print(sums)
+
+
+# '''Using .concat() to concatenate two dataframes'''
+
+# import pandas as pd 
+ 
+# # Define a dictionary containing employee data 
+# data1 = {'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+#         'Age':[27, 24, 22, 32], 
+#         'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Msc', 'MA', 'MCA', 'Phd']} 
+   
+# # Define a dictionary containing employee data 
+# data2 = {'Name':['Abhi', 'Ayushi', 'Dhiraj', 'Hitesh'], 
+#         'Age':[17, 14, 12, 52], 
+#         'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Btech', 'B.A', 'Bcom', 'B.hons']} 
+ 
+# # Convert the dictionary into DataFrame  
+# df = pd.DataFrame(data1,index=[0, 1, 2, 3])
+# print(df)
+
+ 
+# # Convert the dictionary into DataFrame  
+# df1 = pd.DataFrame(data2, index=[4, 5, 6, 7])
+# print(df1)
+ 
+ 
+# frame=[df,df1]
+
+# res=pd.concat(frame)
+# print(res)
+
+
+# import pandas as pd 
+ 
+# # Define a dictionary containing employee data 
+# data1 = {'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+#         'Age':[27, 24, 22, 32], 
+#         'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Msc', 'MA', 'MCA', 'Phd'],
+#         'Mobile No': [97, 91, 58, 76]} 
+   
+# # Define a dictionary containing employee data 
+# data2 = {'Name':['Gaurav', 'Anuj', 'Dhiraj', 'Hitesh'], 
+#         'Age':[22, 32, 12, 52], 
+#         'Address':['Allahabad', 'Kannuaj', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['MCA', 'Phd', 'Bcom', 'B.hons'],
+#         'Salary':[1000, 2000, 3000, 4000]} 
+ 
+# # Convert the dictionary into DataFrame  
+# df = pd.DataFrame(data1,index=[0, 1, 2, 3])
+ 
+# # Convert the dictionary into DataFrame  
+# df1 = pd.DataFrame(data2, index=[2, 3, 6, 7]) 
+
+# # applying concat with axes join = 'inner'
+# res2 = pd.concat([df, df1], axis=1,join='inner')
+ 
+# print(res2)
+
+
+# # importing pandas module
+# import pandas as pd 
+ 
+# # Define a dictionary containing employee data 
+# data1 = {'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+#         'Age':[27, 24, 22, 32], 
+#         'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Msc', 'MA', 'MCA', 'Phd']} 
+   
+# # Define a dictionary containing employee data 
+# data2 = {'Name':['Abhi', 'Ayushi', 'Dhiraj', 'Hitesh'], 
+#         'Age':[17, 14, 12, 52], 
+#         'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Btech', 'B.A', 'Bcom', 'B.hons']} 
+ 
+# # Convert the dictionary into DataFrame  
+# df = pd.DataFrame(data1,index=[0, 1, 2, 3])
+ 
+# # Convert the dictionary into DataFrame  
+# df1 = pd.DataFrame(data2, index=[2,3, 6, 7])
+ 
+# print(df, "\n\n", df1)
+
+# res=df.append(df1, ignore_index=True)
+# print(res)
+
+
+
+# # importing pandas module
+# import pandas as pd 
+  
+# # Define a dictionary containing employee data 
+# data1 = {'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+#         'Age':[27, 24, 22, 32], 
+#         'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Msc', 'MA', 'MCA', 'Phd'],
+#         'Mobile No': [97, 91, 58, 76]} 
+    
+# # Define a dictionary containing employee data 
+# data2 = {'Name':['Gaurav', 'Anuj', 'Dhiraj', 'Hitesh'], 
+#         'Age':[22, 32, 12, 52], 
+#         'Address':['Allahabad', 'Kannuaj', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['MCA', 'Phd', 'Bcom', 'B.hons'],
+#         'Salary':[1000, 2000, 3000, 4000]} 
+  
+# # Convert the dictionary into DataFrame  
+# df = pd.DataFrame(data1,index=[0, 1, 2, 3])
+  
+# # Convert the dictionary into DataFrame  
+# df1 = pd.DataFrame(data2, index=[2, 3, 6, 7]) 
+
+# res=pd.concat([df,df1],keys=['x','y'])
+# print(res)
+
+
+# importing pandas module
+# import pandas as pd 
+ 
+# # Define a dictionary containing employee data 
+# data1 = {'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+#         'Age':[27, 24, 22, 32], 
+#         'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Msc', 'MA', 'MCA', 'Phd']} 
+   
+# # Convert the dictionary into DataFrame  
+# df = pd.DataFrame(data1,index=[0, 1, 2, 3])
+ 
+# # creating a series
+# s1 = pd.Series([1000, 2000, 3000, 4000], name='Salary')
+ 
+# print(df, "\n\n", s1) 
+
+# # combining series and dataframe
+# res = pd.concat([df, s1], axis=1)
+ 
+# print(res)
+
+# '''Merging a dataframe with one unique key combination'''
+
+# # importing pandas module
+# import pandas as pd 
+ 
+# # Define a dictionary containing employee data 
+# data1 = {'key': ['K0', 'K1', 'K2', 'K3'],
+#          'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+#         'Age':[27, 24, 22, 32],} 
+   
+# # Define a dictionary containing employee data 
+# data2 = {'key': ['K0', 'K1', 'K2', 'K3'],
+#          'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Btech', 'B.A', 'Bcom', 'B.hons']} 
+ 
+# # Convert the dictionary into DataFrame  
+# df = pd.DataFrame(data1)
+ 
+# # Convert the dictionary into DataFrame  
+# df1 = pd.DataFrame(data2) 
+  
+ 
+# print(df, "\n\n", df1) 
+
+# res=pd.merge(df,df1, on='key')
+
+
+# '''Merging dataframe using multiple join keys.'''
+
+# # importing pandas module
+# import pandas as pd 
+ 
+# # Define a dictionary containing employee data 
+# data1 = {'key': ['K0', 'K1', 'K2', 'K3'],
+#          'key1': ['K0', 'K1', 'K0', 'K1'],
+#          'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+#         'Age':[27, 24, 22, 32],} 
+   
+# # Define a dictionary containing employee data 
+# data2 = {'key': ['K0', 'K1', 'K2', 'K3'],
+#          'key1': ['K0', 'K0', 'K0', 'K0'],
+#          'Address':['Nagpur', 'Kanpur', 'Allahabad', 'Kannuaj'], 
+#         'Qualification':['Btech', 'B.A', 'Bcom', 'B.hons']} 
+ 
+# # Convert the dictionary into DataFrame  
+# df = pd.DataFrame(data1)
+ 
+# # Convert the dictionary into DataFrame  
+# df1 = pd.DataFrame(data2) 
+  
+ 
+# print(df, "\n\n", df1)
+
+# print()
+
+# # merging dataframe using multiple keys
+# res1 = pd.merge(df, df1, on=['key', 'key1'],how='inner')   #by default merge is inner join or "intersection"
+ 
+# print(res1)
+
+'''Using Join'''
+
+# importing pandas module
+import pandas as pd 
+ 
+# Define a dictionary containing employee data 
+data1 = {'Name':['Jai', 'Princi', 'Gaurav', 'Anuj'], 
+        'Age':[27, 24, 22, 32]} 
+   
+# Define a dictionary containing employee data 
+data2 = {'Address':['Allahabad', 'Kannuaj', 'Allahabad', 'Kannuaj'], 
+        'Qualification':['MCA', 'Phd', 'Bcom', 'B.hons']} 
+ 
+# Convert the dictionary into DataFrame  
+df = pd.DataFrame(data1,index=['K0', 'K1', 'K2', 'K3'])
+ 
+# Convert the dictionary into DataFrame  
+df1 = pd.DataFrame(data2, index=['K0', 'K2', 'K3', 'K4'])
+
+
+print(df, "\n\n", df1)  
+
+res = df.join(df1)
+ 
+print(res)
+
+
 
