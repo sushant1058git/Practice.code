@@ -494,6 +494,13 @@
 # # display 
 # print(df)
 
+import pandas as pd
 
+df =pd.DataFrame({'Name':['sushant','ajay','vijay','rebu'],
+                 'Age':[23,45,67,88]})
+
+writer=pd.ExcelWriter('pandaex.xlsx', engine='xlsxwriter')
+df.to_excel(writer,sheet_name='Sheet1')
+writer.save()
 
 
