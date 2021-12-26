@@ -152,17 +152,50 @@
 #         print("Iteration {0}: x = {1}".format(i,x))   
 
 
-'''Program to understand Lock () '''
+# '''Program to understand RLock () '''
+# from threading import *
+
+# class Flight:
+#     def __init__(self,availbale_seat):
+#         self.available_seat=availbale_seat
+#         self.i=RLock()
+#         print(self.i)
+    
+#     def reserve(self,seat_needed):
+#         self.i.acquire()
+#         print(self.i)
+#         self.seat_needed=seat_needed
+#         print(f"Available seat : {self.available_seat} ")
+#         if self.available_seat >= self.seat_needed:
+#             name=current_thread().name
+#             print(f"{seat_needed} is alloted to {name}")
+#             self.available_seat -= seat_needed
+            
+#         else:
+#             print("No seats available")
+#         self.i.release()
+#         print(self.i)
+            
+# f=Flight(1)
+# t1=Thread(target=f.reserve, args=(1,), name='Sushant')
+# t2=Thread(target=f.reserve,args=(1,), name='Raj')
+
+# t1.start()
+# t2.start()
+
+
+'''Program to understand Semaphore () '''
 from threading import *
-import time
 
 class Flight:
     def __init__(self,availbale_seat):
         self.available_seat=availbale_seat
-        self.i=Lock()
+        self.i=Semaphore(2)
+        print(self.i)
     
     def reserve(self,seat_needed):
         self.i.acquire()
+        print(self.i)
         self.seat_needed=seat_needed
         print(f"Available seat : {self.available_seat} ")
         if self.available_seat >= self.seat_needed:
@@ -173,12 +206,17 @@ class Flight:
         else:
             print("No seats available")
         self.i.release()
+        print(self.i)
             
-f=Flight(1)
+f=Flight(3)
 t1=Thread(target=f.reserve, args=(1,), name='Sushant')
 t2=Thread(target=f.reserve,args=(1,), name='Raj')
+t3=Thread(target=f.reserve,args=(1,), name='Naj')
+t4=Thread(target=f.reserve,args=(1,), name='Baaj')
 
 t1.start()
 t2.start()
+t3.start()
+t4.start()
 
         
