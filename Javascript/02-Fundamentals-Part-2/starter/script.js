@@ -30,3 +30,18 @@
 // console.log(res)
 
 //Arrow Function is helpful fro one liner function
+
+function calcAverage(n1,n2,n3){
+    return (n1+n2+n3)/3
+}
+
+a1=calcAverage(44,23,71)
+a2=calcAverage(65,54,49)
+
+function checkWinner(a1,a2){
+    if (a1>=2*a2) console.log("Dolphin wins ")
+    else if (a2>=2*a1) console.log("koala wins")
+    else console.log("match tied")
+}
+
+checkWinner(a1, a2)
