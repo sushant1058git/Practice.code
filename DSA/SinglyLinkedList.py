@@ -125,6 +125,7 @@
 
 
 
+
 class Node:
     def __init__(self,value,nextNode=None):
         self.value=value
@@ -183,14 +184,29 @@ class LinkedList:
     def deleteFirst(self):
         self.head=self.head.nextNode
         
+    def countIndexValue(self):
+        temp=self.head
+        index=0
+        while temp.nextNode is not None:
+            temp=temp.nextNode
+            index +=1
+        return index
+            
+        
     def deleteLast(self):
         temp=self.head
-        for i in range(1,8):
+        index=l1.countIndexValue()
+        for i in range(1,index-1):
             temp=temp.nextNode
         self.tail=temp.nextNode
-        
-                
+        self.tail.nextNode=None               
             
+    def delete(self,index):
+        temp=self.head
+        for i in range(1,index):
+            temp=temp.nextNode
+        temp.nextNode=temp.nextNode.nextNode
+        
 
     def printLinkedList(self):
         tempNode=self.head
@@ -198,6 +214,8 @@ class LinkedList:
             print(tempNode.value,'-->',end=' ')
             tempNode=tempNode.nextNode
         print("END")
+        
+        
         
         
 # l1=LinkedList()
@@ -235,3 +253,8 @@ l1.printLinkedList()
 # l1.printLinkedList()
 l1.deleteLast()
 l1.printLinkedList()
+# l1.countIndexValue()
+l1.delete(3)
+l1.printLinkedList()
+
+
