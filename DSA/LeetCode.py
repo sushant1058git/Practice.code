@@ -1,4 +1,7 @@
 #1. Two Sum
+from math import fabs
+
+
 nums=[2,7,11,15]
 target=9
 class Solution:
@@ -35,3 +38,25 @@ class Solution:
             
 c=Solution()
 print(c.maxArea(height))
+
+
+#4.Valid parenthesis Problem
+
+string="()[()]"
+opening=['(','{','[']
+stack=[]
+
+def isValid(string):
+    for i in string:
+        if i in opening:
+            stack.append(i)
+        elif stack==[]:
+            return False
+        elif i==')' and stack.pop()!='(' or i=='}' and stack.pop()!='{' or i==']' and stack.pop() != '[':
+            return False
+    return not stack
+        
+        
+a=isValid(string)
+print(a)
+        
