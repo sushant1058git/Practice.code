@@ -42,7 +42,7 @@ print(c.maxArea(height))
 
 #4.Valid parenthesis Problem
 
-string="()[()]"
+string="()[({)}]"
 opening=['(','{','[']
 stack=[]
 
