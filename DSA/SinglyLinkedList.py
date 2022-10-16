@@ -258,3 +258,5 @@ l1.delete(3)
 l1.printLinkedList()
 
 
+
+
