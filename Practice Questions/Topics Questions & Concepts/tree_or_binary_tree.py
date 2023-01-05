@@ -79,3 +79,6 @@ def postOrderTraversal(rootNode):
 preOrderTraversal(newBT)
 inOrderTraversal(newBT)
 postOrderTraversal(newBT)
+
+
+

@@ -1,2 +1,0 @@
-print("objects")
-print("hi")
