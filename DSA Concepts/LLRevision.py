@@ -28,7 +28,6 @@ class LinkedList:
             self.head=newNode
             self.tail=newNode
         else:
-            self.tail=self.head
             newNode.next=self.head
             self.head=newNode
             
@@ -38,6 +37,27 @@ class LinkedList:
             print(str(tempNode.val)+'-->',end="")
             tempNode=tempNode.next
         print("END")
+        
+    def insertLastUsingTail(self,value):
+        newNode=Node(value)
+        if self.tail == None:
+            self.tail=newNode
+            self.head=newNode
+        else:
+            self.tail.next=newNode
+            self.tail=newNode
+        
+    def deleteFirst(self):
+        self.head=self.head.next
+        
+    def deleteLast(self):
+        tempNode=self.head
+        while tempNode.next != self.tail:
+            tempNode=tempNode.next
+        self.tail=tempNode
+        self.tail.next=None
+            
+    
             
 newLL=LinkedList()
 print(newLL.isEmpty())
@@ -45,5 +65,13 @@ newLL.insertFirst(45)
 newLL.insertFirst(454)
 newLL.insertFirst(495)
 newLL.printLL()
-print(newLL.isEmpty())
+newLL.insertLastUsingTail(100)
+newLL.insertLastUsingTail(300)
+newLL.printLL()
+print("LL after deleting first element..")
+newLL.deleteFirst()
+newLL.printLL()
+print("LL after deleting last element..")
+newLL.deleteLast()
+newLL.printLL()
 
